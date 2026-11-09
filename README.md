@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Monster Wheels — The Ultimate Monster Truck Adventure
 
 **Drive Wild. Crush Obstacles. Conquer Every Track.**
@@ -170,3 +171,6 @@ Open **`admin.html`** (also linked from the game menu's 🛠️ Admin button).
 
 Evergreen Chrome/Edge/Firefox/Safari (desktop + mobile). Uses Pointer Events,
 `localStorage`, and standard CSS; no polyfills bundled.
+=======
+# Monster-Wheels-game-
+>>>>>>> a7a9f0468156b2e8a2a15f8611a833afeacd0e38
