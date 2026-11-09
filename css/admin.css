@@ -1,0 +1,242 @@
+/* ============================================================
+   Monster Wheels — Admin Control Panel stylesheet
+   Local demo only. Shares tokens with css/game.css.
+   ============================================================ */
+
+:root {
+  --mw-bg: #070b14;
+  --mw-panel: #101624;
+  --mw-panel-2: #161e2f;
+  --mw-line: #26304a;
+  --mw-text: #eef2f8;
+  --mw-muted: #98a2b3;
+  --mw-accent: #ff7a1a;
+  --mw-accent-2: #ff5f1f;
+  --mw-blue: #00a2ff;
+  --mw-green: #2ecc71;
+  --mw-red: #ff5c5c;
+}
+
+html, body { height: 100%; }
+body.adm {
+  display: flex;
+  min-height: 100vh;
+  background: var(--mw-bg);
+  color: var(--mw-text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ---------------- Sidebar ---------------- */
+.adm-side {
+  flex: none;
+  width: 232px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--mw-line);
+  background: linear-gradient(180deg, #0c1220, #090d17);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.adm-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 14px;
+  border-bottom: 1px solid var(--mw-line);
+}
+.adm-brand img { width: 40px; height: 40px; }
+.adm-brand__name { font-weight: 800; font-size: 16px; font-family: 'baloo 2', system-ui, sans-serif; }
+.adm-brand__sub { font-size: 11px; color: var(--mw-muted); }
+
+.adm-nav { flex: 1 1 auto; overflow: auto; padding: 10px 8px; display: flex; flex-direction: column; gap: 2px; }
+.adm-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--mw-text);
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid transparent;
+}
+.adm-nav a:hover { background: #141c2e; }
+.adm-nav a.active {
+  background: linear-gradient(180deg, rgba(255, 122, 26, .22), rgba(255, 95, 31, .12));
+  border-color: rgba(255, 122, 26, .5);
+  font-weight: 700;
+}
+.adm-nav .ico { width: 20px; text-align: center; flex: none; }
+
+.adm-side__foot { padding: 12px; border-top: 1px solid var(--mw-line); display: grid; gap: 8px; }
+.adm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #3a2a10;
+  color: #ffcf9e;
+  border: 1px solid #7a5a25;
+}
+
+/* ---------------- Main area ---------------- */
+.adm-main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+
+.adm-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--mw-line);
+  background: rgba(9, 13, 23, .8);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+}
+.adm-top h1 { font-size: 22px; margin: 0; font-family: 'baloo 2', system-ui, sans-serif; }
+.adm-top__actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.adm-content { padding: 20px; max-width: 1200px; width: 100%; box-sizing: border-box; }
+
+/* ---------------- Cards / stats ---------------- */
+.adm-warn {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 1px solid #7a5a25;
+  border-left: 4px solid var(--mw-accent);
+  border-radius: 12px;
+  background: #1d1607;
+  color: #f3d9b5;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.adm-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.adm-stat {
+  padding: 14px;
+  border: 1px solid var(--mw-line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--mw-panel-2), var(--mw-panel));
+}
+.adm-stat__num { font-size: 26px; font-weight: 800; font-family: 'baloo 2', system-ui, sans-serif; }
+.adm-stat__lbl { font-size: 12px; color: var(--mw-muted); }
+
+.adm-card {
+  border: 1px solid var(--mw-line);
+  border-radius: 14px;
+  background: var(--mw-panel);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.adm-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--mw-line);
+  background: var(--mw-panel-2);
+}
+.adm-card__title { font-weight: 700; font-size: 15px; margin: 0; }
+.adm-card__body { padding: 14px 16px; }
+
+/* ---------------- Tables ---------------- */
+.adm-table-wrap { overflow-x: auto; }
+table.adm-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.adm-table th, .adm-table td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--mw-line); vertical-align: middle; }
+.adm-table th { color: var(--mw-muted); font-size: 12px; text-transform: uppercase; letter-spacing: .5px; white-space: nowrap; }
+.adm-table tr.local-row { background: rgba(0, 162, 255, .1); }
+.adm-table .row-actions { display: flex; gap: 6px; justify-content: flex-end; }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  border: 1px solid var(--mw-line);
+  background: #0e1524;
+  color: var(--mw-muted);
+  white-space: nowrap;
+}
+.tag--on { background: #10331f; border-color: #1f6b40; color: #8ff0b8; }
+.tag--off { background: #33141c; border-color: #6b1f33; color: #ffb3b3; }
+.tag--demo { background: #2c2410; border-color: #6b5a1f; color: #ffe08f; }
+
+/* ---------------- Forms ---------------- */
+.adm-form { display: grid; gap: 12px; }
+.adm-form--2 { grid-template-columns: 1fr 1fr; }
+.adm-f label { display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 5px; color: #c6cede; }
+.adm-f input[type="text"],
+.adm-f input[type="number"],
+.adm-f select,
+.adm-f textarea {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 2px solid var(--mw-line);
+  border-radius: 10px;
+  background: #0c1220;
+  color: var(--mw-text);
+  font: inherit;
+  box-sizing: border-box;
+}
+.adm-f textarea { min-height: 84px; resize: vertical; }
+.adm-f input:focus, .adm-f select:focus, .adm-f textarea:focus { outline: none; border-color: var(--mw-blue); }
+.adm-f .hint { font-size: 11.5px; color: var(--mw-muted); margin-top: 4px; }
+.adm-f .err { font-size: 12px; color: var(--mw-red); margin-top: 4px; min-height: 1em; }
+
+.adm-check { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; cursor: pointer; }
+
+.adm-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+
+/* ---------------- Activity feed ---------------- */
+.adm-feed { list-style: none; margin: 0; padding: 0; }
+.adm-feed li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--mw-line);
+  font-size: 13px;
+}
+.adm-feed li:last-child { border-bottom: none; }
+.adm-feed .when { color: var(--mw-muted); font-size: 11.5px; white-space: nowrap; }
+.adm-feed .what { font-weight: 700; color: #ffcf9e; white-space: nowrap; }
+
+/* ---------------- Simple bar chart ---------------- */
+.adm-bars { display: grid; gap: 10px; }
+.adm-bar { display: grid; grid-template-columns: 130px 1fr 54px; gap: 10px; align-items: center; font-size: 13px; }
+.adm-bar__track { height: 14px; border-radius: 999px; background: #131b2d; overflow: hidden; border: 1px solid var(--mw-line); }
+.adm-bar__fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--mw-accent), var(--mw-accent-2)); }
+.adm-bar__val { text-align: right; color: var(--mw-muted); font-variant-numeric: tabular-nums; }
+
+/* ---------------- Empty state ---------------- */
+.adm-empty { text-align: center; color: var(--mw-muted); padding: 22px 0; font-size: 13.5px; }
+
+/* ---------------- Modal (reuses .mw-modal from game.css) ---------------- */
+.mw-modal__card { max-width: 520px; }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 860px) {
+  body.adm { flex-direction: column; }
+  .adm-side { width: 100%; height: auto; position: static; flex-direction: column; }
+  .adm-nav { flex-direction: row; flex-wrap: wrap; overflow-x: auto; }
+  .adm-nav a { flex: none; }
+  .adm-content { padding: 14px; }
+  .adm-form--2 { grid-template-columns: 1fr; }
+  .adm-bar { grid-template-columns: 96px 1fr 48px; }
+}

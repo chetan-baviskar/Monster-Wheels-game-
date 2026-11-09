@@ -1,0 +1,14 @@
+{
+  "name": "monster-wheels",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monster Wheels — The Ultimate Monster Truck Adventure. A frontend-only wrapper around the existing WebAssembly monster-truck engine, with a local admin demo panel.",
+  "scripts": {
+    "start": "node tools/serve.js",
+    "serve": "node tools/serve.js",
+    "check": "node tools/check.js"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

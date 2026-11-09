@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#070b14" />
+  <title>Monster Wheels — Admin (local demo)</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/game.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+
+<body class="adm">
+  <aside class="adm-side">
+    <div class="adm-brand">
+      <img src="favicon.svg" alt="" />
+      <div>
+        <div class="adm-brand__name">Monster Wheels</div>
+        <div class="adm-brand__sub">Admin · local demo</div>
+      </div>
+    </div>
+    <nav class="adm-nav" aria-label="Admin sections"></nav>
+    <div class="adm-side__foot">
+      <span class="adm-badge">⚠️ Local demo · not secure</span>
+      <a class="mw-btn mw-btn--sm mw-btn--ghost" href="index.html">← Back to the game</a>
+    </div>
+  </aside>
+
+  <main class="adm-main">
+    <header class="adm-top">
+      <h1 id="adm_title">Dashboard</h1>
+      <div class="adm-top__actions">
+        <button class="mw-btn mw-btn--sm" id="adm_export_top" type="button">⬇ Export JSON</button>
+        <a class="mw-btn mw-btn--sm mw-btn--primary" href="index.html">▶ Open game</a>
+      </div>
+    </header>
+    <div class="adm-content" id="adm_content"></div>
+  </main>
+
+  <!-- Same localStorage-backed services as the game (no engine scripts). -->
+  <script src="js/utils/validation.js"></script>
+  <script src="js/utils/storage.js"></script>
+  <script src="js/services/settingsService.js"></script>
+  <script src="js/services/playerService.js"></script>
+  <script src="js/services/progressService.js"></script>
+  <script src="js/services/achievementService.js"></script>
+  <script src="js/services/leaderboardService.js"></script>
+  <script src="js/services/adminService.js"></script>
+  <script src="js/ui/toast.js"></script>
+  <script src="js/admin/adminApp.js"></script>
+  <script>
+    window.MW.adminApp.init();
+  </script>
+</body>
+
+</html>
